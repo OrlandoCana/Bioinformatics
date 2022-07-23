@@ -1,4 +1,3 @@
-
 def read_file(file_path: str) -> None:
     sequences = []
     headers = []
