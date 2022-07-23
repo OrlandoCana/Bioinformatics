@@ -46,4 +46,5 @@ def box_plot(quality_array: List[str]) -> None:
 
     fig = plt.figure(figsize=(10, 7))
     ax = fig.add_axes([0, 0, 1, 1])
-    bp = ax.boxplot(data)
+    ax.boxplot(data)
+    plt.show()
