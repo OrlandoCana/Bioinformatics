@@ -1,3 +1,20 @@
+'''
+Read a file with extension .fasta (nameFile.fasta)
+
+Fasta file example: 
+>gi|5524211|gb|AAD44166.1| cytochrome b [Elephas maximus maximus]
+LCLYTHIGRNIYYGSYLYSETWNTGIMLLLITMATAFMGYVLPWGQMSFWGATVITNLFSAIPYIGTNLV
+EWIWGGFSVDKATLNRFFAFHFILPFTMVALAGVHLTFLHETGSNNPLGLTSDSDKIPFHPYYTIKDFLG
+LLILILLLLLLALLSPDMLGDPDNHMPADPLNTPLHIKPEWYFLFAYAILRSVPNKLGGVLALFLSIVIL
+GLMPFLHTSKHRSMMLRPLSQALFWTLTMDLLTLTWIGSQPVEYPYTIIGQMASILYFSIILAFLPIAGX
+IENY
+
+returns:
+    sequences: nucleotide sequences list
+    headers: headers of the nucleotide sequences
+    
+reference: https://es.wikipedia.org/wiki/Formato_FASTA
+'''
 def read_file(file_path: str) -> None:
     sequences = []
     headers = []
@@ -15,6 +32,13 @@ def read_file(file_path: str) -> None:
         return sequences[1:], headers
 
 
+'''
+Converts a strand of ADN to complementary strand of RNA 
+
+Replace 'T' with 'U' 
+
+For reverse transcription replace 'U' with 'T'
+'''
 def transcription(sequence: str) -> str:
     return sequence.replace('T', 'U')
 
@@ -22,7 +46,13 @@ def transcription(sequence: str) -> str:
 def reverseTranscription(sequence: str) -> str:
     return sequence.replace('U', 'T')
 
+'''
+Converts a strand of complementary RNA to strand of Proteins
 
+For reverse translation convert strand of proteins to strand of complementary RNA 
+
+Reference: https://www.lecturio.com/concepts/stages-and-regulation-of-translation/
+'''
 def translation(sequence: str) -> str:
     genetic_code = {'GGG': 'G', 'GGA': 'G', 'GGC': 'G', 'GGU': 'G',
                     'GAG': 'E', 'GAA': 'E', 'GAC': 'D', 'GAU': 'D',
@@ -63,3 +93,5 @@ def reverseTranslation(sequence: str) -> str:
         arnmSequence += reverse_genetic_code[protein]
 
     return arnmSequence
+
+
