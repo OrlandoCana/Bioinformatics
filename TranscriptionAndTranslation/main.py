@@ -1,7 +1,6 @@
-from msilib import sequence
 import functions as func
 if (__name__ == '__main__'):
-    filePath = 'transcription-translation/sequence.fasta'
+    filePath = 'TranscriptionAndTranslation/sequence.fasta'
     sequences, headers = func.read_file(filePath)
     print(f'This file contains {len(sequences)} sequences')
     print('This is the first sequence:')

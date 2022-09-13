@@ -57,6 +57,23 @@ def levenshtein_algorithm(sequence1: str, sequence2: str) -> None:
     return matrix
 
 
-if (__name__ == '__main__'):
-    matrix = levenshtein_algorithm('atatcgtgac', 'ttctctgag')
-    show_matrix(matrix)
+def bad_character_rule():
+    k = 0
+    return k
+
+
+def sufix_rule():
+    k = 0
+    return 0
+
+
+def booyerMoore_algorithm(sequence: str, pattern: str) -> int:
+    k = 0
+    lenPattern = len(pattern)
+    while (k < len(sequence)):
+        if (sequence[k: lenPattern] == pattern):
+            break
+        add_pos = max(bad_character_rule(
+            sequence[k:lenPattern]), sufix_rule(sequence[k:lenPattern]))
+        k += add_pos
+    return k
